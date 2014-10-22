@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DetailControllerDelegate <NSObject>
+
+-(void)onAddFriendButtonTapped:(NSDictionary *)friend;
+
+@end
+
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property NSDictionary *selectedPerson;
 
+@property id<DetailControllerDelegate> delegate;
 @end
 
