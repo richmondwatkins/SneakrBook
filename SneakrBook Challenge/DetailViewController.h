@@ -11,14 +11,15 @@
 @protocol DetailControllerDelegate <NSObject>
 
 -(void)onAddFriendButtonTapped:(NSDictionary *)friend;
-
+-(void)onSaveButtonTapped:(NSDictionary *)friend withImage:(UIImage *)image;
 @end
 
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
 @property NSDictionary *selectedPerson;
-
+@property BOOL isFriend;
+@property UIImage *sneakerImage;
 @property id<DetailControllerDelegate> delegate;
 @end
 

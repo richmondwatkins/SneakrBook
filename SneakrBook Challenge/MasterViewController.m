@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadData];
-    
+
     self.people = [NSMutableArray array];
     NSDictionary *sneaker1 = @{@"brand": @"Nike", @"color": @"red", @"size": @(10)};
     NSDictionary *sneaker2 = @{@"brand": @"Adidas", @"color": @"white", @"size": @(12)};
@@ -49,11 +49,13 @@
 
         results.each(^(id n){
             NSMutableDictionary *person = [NSMutableDictionary new];
+
             [person setObject:n forKey:@"name"];
 
             NSDictionary *randomSneaker = self.sneakerArray.sample;
             [person setObject:randomSneaker forKey:@"sneaker"];
             [self.people addObject:person];
+
         });
 
         [self.tableView reloadData];
@@ -69,8 +71,20 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     NSDictionary *person = [self.people objectAtIndex:indexPath.row];
-    cell.leftDetailLabel.text = person[@"name"];
+
     cell.subTitleLabel.text = person[@"sneaker"][@"brand"];
+    if (self.friends.count) {
+        self.friends.each(^(User *n){
+            if ([n.name isEqualToString:person[@"name"]]) {
+                NSArray *tempArray = [n.sneakers allObjects];
+                Sneaker *sneaker = tempArray[0];
+                cell.subTitleLabel.text = sneaker.brand;
+                cell.addFriendButton.text =  @"";
+            }
+        });
+    }
+
+    cell.leftDetailLabel.text = person[@"name"];
     return cell;
 }
 
@@ -85,19 +99,53 @@
     [user addSneakersObject:sneaker];
 
     [self.managedObjectContext save:nil];
+    [self.managedObjectContext save:nil];
+
+}
+
+-(void)onSaveButtonTapped:(NSDictionary *)friend withImage:(UIImage *)image{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Sneaker"];
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+
+    results.each(^(Sneaker *n){
+        if ([n.brand isEqualToString:friend[@"sneaker"][@"brand"]]) {
+            NSData *imageData = UIImagePNGRepresentation(image);
+            n.photo = imageData;
+            [self.managedObjectContext save:nil];
+            [self loadData];
+        }
+    });
 }
 
 -(void)loadData{
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    self.friends = [self.managedObjectContext executeFetchRequest:request error:nil];
-    NSLog(@"%@ ", self.friends);
+    NSArray *results  = [self.managedObjectContext executeFetchRequest:request error:nil];
+    self.friends = results;
+    [self.tableView reloadData];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     DetailViewController *detailViewCtrl = segue.destinationViewController;
     detailViewCtrl.delegate = self;
     NSDictionary *selectedPerson = [self.people objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    detailViewCtrl.isFriend = NO;
+        if (self.friends.count) {
+            for(User *n in self.friends){
+                if ([n.name isEqualToString:selectedPerson[@"name"]]) {
+                    NSArray *tempArray = [n.sneakers allObjects];
+                    Sneaker *sneaker = tempArray[0];
+                    selectedPerson = @{@"name":n.name , @"sneaker": @{@"brand": sneaker.brand, @"color": sneaker.color, @"size": sneaker.size}};
+                    detailViewCtrl.isFriend = YES;
+                    detailViewCtrl.sneakerImage = [UIImage imageWithData:sneaker.photo];
+                }
+            }
+        }
+
     detailViewCtrl.selectedPerson = selectedPerson;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self loadData];
 }
 
 

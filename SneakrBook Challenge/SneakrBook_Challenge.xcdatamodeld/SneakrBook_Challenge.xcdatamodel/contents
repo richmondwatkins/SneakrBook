@@ -3,6 +3,7 @@
     <entity name="Sneaker" representedClassName="Sneaker" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="size" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="sneakers" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -11,7 +12,7 @@
         <relationship name="sneakers" toMany="YES" deletionRule="Nullify" destinationEntity="Sneaker" inverseName="user" inverseEntity="Sneaker" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Sneaker" positionX="-54" positionY="-9" width="128" height="120"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Sneaker" positionX="-54" positionY="-9" width="128" height="103"/>
     </elements>
 </model>

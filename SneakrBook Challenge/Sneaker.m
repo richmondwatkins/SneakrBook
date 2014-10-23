@@ -1,9 +1,9 @@
 //
 //  Sneaker.m
-//  SneakrBook Challenge
+//  
 //
 //  Created by Richmond on 10/22/14.
-//  Copyright (c) 2014 Richmond. All rights reserved.
+//
 //
 
 #import "Sneaker.h"
@@ -12,9 +12,10 @@
 
 @implementation Sneaker
 
+@dynamic brand;
 @dynamic color;
 @dynamic size;
-@dynamic brand;
+@dynamic photo;
 @dynamic user;
 
 @end

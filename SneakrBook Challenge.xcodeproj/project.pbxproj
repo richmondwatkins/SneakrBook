@@ -16,9 +16,9 @@
 		5D0BF79219F837A50082D1A6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D0BF79119F837A50082D1A6 /* Images.xcassets */; };
 		5D0BF79519F837A50082D1A6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D0BF79319F837A50082D1A6 /* LaunchScreen.xib */; };
 		5D0BF7A119F837A50082D1A6 /* SneakrBook_ChallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0BF7A019F837A50082D1A6 /* SneakrBook_ChallengeTests.m */; };
+		5D0EC72619F8ACCC0028E7D0 /* Sneaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0EC72519F8ACCC0028E7D0 /* Sneaker.m */; };
 		5D2E855D19F84EC300E213FB /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E855C19F84EC300E213FB /* CustomTableViewCell.m */; };
 		5D2E856019F869E300E213FB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E855F19F869E300E213FB /* User.m */; };
-		5D2E856319F869E300E213FB /* Sneaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D2E856219F869E300E213FB /* Sneaker.m */; };
 		FADA70549C5DCAF618EFA188 /* libPods-SneakrBook Challenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BF721D7E69287AA399B200 /* libPods-SneakrBook Challenge.a */; };
 /* End PBXBuildFile section */
 
@@ -50,12 +50,12 @@
 		5D0BF79A19F837A50082D1A6 /* SneakrBook ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SneakrBook ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0BF79F19F837A50082D1A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D0BF7A019F837A50082D1A6 /* SneakrBook_ChallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SneakrBook_ChallengeTests.m; sourceTree = "<group>"; };
+		5D0EC72419F8ACCC0028E7D0 /* Sneaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sneaker.h; sourceTree = "<group>"; };
+		5D0EC72519F8ACCC0028E7D0 /* Sneaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sneaker.m; sourceTree = "<group>"; };
 		5D2E855B19F84EC300E213FB /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTableViewCell.h; path = ../CustomTableViewCell.h; sourceTree = "<group>"; };
 		5D2E855C19F84EC300E213FB /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTableViewCell.m; path = ../CustomTableViewCell.m; sourceTree = "<group>"; };
 		5D2E855E19F869E300E213FB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5D2E855F19F869E300E213FB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		5D2E856119F869E300E213FB /* Sneaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sneaker.h; sourceTree = "<group>"; };
-		5D2E856219F869E300E213FB /* Sneaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sneaker.m; sourceTree = "<group>"; };
 		99BF721D7E69287AA399B200 /* libPods-SneakrBook Challenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SneakrBook Challenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACC01BFA56F55DA6FB07141 /* Pods-SneakrBook Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakrBook Challenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SneakrBook Challenge/Pods-SneakrBook Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,10 +114,10 @@
 				5D0BF79119F837A50082D1A6 /* Images.xcassets */,
 				5D0BF79319F837A50082D1A6 /* LaunchScreen.xib */,
 				5D0BF78519F837A50082D1A6 /* SneakrBook_Challenge.xcdatamodeld */,
-				5D2E856119F869E300E213FB /* Sneaker.h */,
-				5D2E856219F869E300E213FB /* Sneaker.m */,
 				5D2E855E19F869E300E213FB /* User.h */,
 				5D2E855F19F869E300E213FB /* User.m */,
+				5D0EC72419F8ACCC0028E7D0 /* Sneaker.h */,
+				5D0EC72519F8ACCC0028E7D0 /* Sneaker.m */,
 				5D0BF77E19F837A50082D1A6 /* Supporting Files */,
 			);
 			path = "SneakrBook Challenge";
@@ -306,7 +306,7 @@
 				5D0BF78A19F837A50082D1A6 /* MasterViewController.m in Sources */,
 				5D2E855D19F84EC300E213FB /* CustomTableViewCell.m in Sources */,
 				5D0BF78419F837A50082D1A6 /* AppDelegate.m in Sources */,
-				5D2E856319F869E300E213FB /* Sneaker.m in Sources */,
+				5D0EC72619F8ACCC0028E7D0 /* Sneaker.m in Sources */,
 				5D0BF78119F837A50082D1A6 /* main.m in Sources */,
 				5D0BF78719F837A50082D1A6 /* SneakrBook_Challenge.xcdatamodeld in Sources */,
 			);

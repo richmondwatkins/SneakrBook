@@ -142,6 +142,30 @@
                                     <action selector="addFriendButtonTapped:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="cwW-4E-EOz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owk-1Z-PHM">
+                                <rect key="frame" x="263" y="328" width="75" height="30"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPhoto:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="zVQ-px-pdz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ocT-ti-qdt">
+                                <rect key="frame" x="180" y="191" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Ub4-Yx-qTI"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bt9-7h-n8i">
+                                <rect key="frame" x="283" y="383" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveImage:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="nsZ-jV-AiD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -150,8 +174,16 @@
                             <constraint firstItem="ENW-qD-md4" firstAttribute="centerX" secondItem="MMQ-IT-qOo" secondAttribute="centerX" id="36f-kh-0TI"/>
                             <constraint firstItem="aNv-Hs-F1v" firstAttribute="baseline" secondItem="FiV-2h-y16" secondAttribute="baseline" id="5z4-vz-plH"/>
                             <constraint firstItem="FiV-2h-y16" firstAttribute="leading" secondItem="ENW-qD-md4" secondAttribute="leading" id="9i7-Ac-aKy"/>
+                            <constraint firstItem="owk-1Z-PHM" firstAttribute="top" secondItem="ocT-ti-qdt" secondAttribute="bottom" constant="9" id="BnN-AF-WsK"/>
+                            <constraint firstItem="ocT-ti-qdt" firstAttribute="top" secondItem="FiV-2h-y16" secondAttribute="bottom" constant="8" symbolic="YES" id="Cx1-C7-yea"/>
                             <constraint firstItem="ENW-qD-md4" firstAttribute="trailing" secondItem="aNv-Hs-F1v" secondAttribute="trailing" id="F89-a4-fzm"/>
+                            <constraint firstItem="ocT-ti-qdt" firstAttribute="centerX" secondItem="owk-1Z-PHM" secondAttribute="centerX" id="Otc-wa-Vmq"/>
+                            <constraint firstItem="nLE-TF-hms" firstAttribute="top" secondItem="owk-1Z-PHM" secondAttribute="bottom" constant="18" id="RH5-uR-UuL"/>
+                            <constraint firstAttribute="centerX" secondItem="bt9-7h-n8i" secondAttribute="centerX" id="UQq-G6-lXM"/>
+                            <constraint firstItem="bt9-7h-n8i" firstAttribute="baseline" secondItem="nLE-TF-hms" secondAttribute="baseline" id="gbm-d5-zqN"/>
                             <constraint firstItem="FiV-2h-y16" firstAttribute="top" secondItem="ENW-qD-md4" secondAttribute="bottom" constant="17" id="j5v-KA-ieL"/>
+                            <constraint firstItem="owk-1Z-PHM" firstAttribute="centerX" secondItem="nLE-TF-hms" secondAttribute="centerX" id="jhK-BB-zhh"/>
+                            <constraint firstAttribute="centerX" secondItem="ocT-ti-qdt" secondAttribute="centerX" id="mTt-V8-fBX"/>
                             <constraint firstItem="aNv-Hs-F1v" firstAttribute="leading" secondItem="FiV-2h-y16" secondAttribute="trailing" constant="80" id="oZJ-fU-9BF"/>
                             <constraint firstItem="nLE-TF-hms" firstAttribute="centerX" secondItem="ENW-qD-md4" secondAttribute="centerX" id="pLD-Lc-bcU"/>
                             <constraint firstItem="aNv-Hs-F1v" firstAttribute="baseline" secondItem="FiV-2h-y16" secondAttribute="firstBaseline" id="vDi-dF-YXF"/>
@@ -160,8 +192,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
+                        <outlet property="addFriendButton" destination="nLE-TF-hms" id="CY3-QJ-Bhk"/>
                         <outlet property="brandLabel" destination="ENW-qD-md4" id="1Pz-bP-acb"/>
                         <outlet property="colorLabel" destination="aNv-Hs-F1v" id="5P3-WT-AZw"/>
+                        <outlet property="imageView" destination="ocT-ti-qdt" id="QEI-c4-stK"/>
+                        <outlet property="saveButton" destination="bt9-7h-n8i" id="hhj-p6-0e9"/>
                         <outlet property="sizeLabel" destination="FiV-2h-y16" id="Kgv-tC-jUu"/>
                     </connections>
                 </viewController>
